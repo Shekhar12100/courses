@@ -1,0 +1,132 @@
+$small: 480px;
+$medium: 768px;
+
+.course-row {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 20px 0;
+  border-radius: 15px;
+  color: #fff;
+  @media screen and (max-width: $medium) {
+    flex-wrap: wrap;
+  }
+  .course-col {
+    margin-right: 30px;
+    @media screen and (max-width: $medium) {
+      font-size: 15px;
+      width: 30%;
+      margin-right: 0;
+    }
+    h2 {
+      font-size: 18px;
+      @media screen and (max-width: $medium) {
+        font-size: 13px;
+      }
+    }
+    p {
+      color: #f6cc14;
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 5px;
+      @media screen and (max-width: $medium) {
+        font-size: 21px;
+      }
+    }
+  }
+}
+.course-topic {
+  margin-bottom: 10px;
+  color:#fff;
+  font-weight: bold;
+}
+.syllabus-row {
+  display: flex;
+  flex-wrap: wrap;
+  .syllabus-col {
+    margin-bottom: 10px;
+    margin-right: 1%;
+    color: #fff;
+    h4 {
+      color: #f6cc14;
+      margin-bottom: 5px;
+    }
+  }
+}
+.disclaimer-yearly {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  padding-bottom: 20px;
+  @media screen and (max-width: $medium) {
+    display: block;
+    text-align: center;
+  }
+  div {
+    font-weight: bold;
+    font-size: 21px;
+    @media screen and (max-width: $medium) {
+      font-size: 16px;
+    }
+  }
+  p {
+    text-align: right;
+    font-size: 11px;
+    @media screen and (max-width: $medium) {
+      text-align: center;
+    }
+    a {
+      color:#fff;
+      font-size: 11px;
+      text-decoration: underline;
+    }
+  }
+}
+.feetitle {
+  font-size: 24px;
+  @media screen and (max-width: $medium) {
+    font-size: 18px;
+  }
+}
+.feeamount {
+  font-size: 24px;
+  color:#f7cb14;
+  @media screen and (max-width: $medium) {
+    font-size: 18px;
+  }
+}
+.course-info {
+  margin-top: 10px;
+  @media screen and (max-width: $medium) {
+    display: block;
+    text-align: center;
+  }
+  .badge-wrap {
+    text-align: right;
+    margin-bottom: 5px;
+    @media screen and (max-width: $medium) {
+      text-align: center;
+    }
+
+    .badge {
+      font-size: 11px;
+        background-color: #fff;
+        color: #0b2f90;
+        padding: 5px;
+        border-radius: 5px;
+        display: inline-block;
+        @media screen and (max-width: $medium) {
+          margin-bottom: 0;
+        }
+    }
+    &.discount-badge {
+      text-align: center;
+    }
+  }
+}
+
+

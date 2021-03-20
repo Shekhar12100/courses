@@ -1,0 +1,94 @@
+<div class="row-wrap">
+
+  <div class="coursesinput">
+    <div class="coursesinput-select">
+        <select (change)="onGradeSelection($event.target.value)" [(ngModel)]="selectedValue">
+            <option *ngFor="let grade of yeardata; let i = index" [value]="i">{{grade.grade}}</option>
+          </select>
+    </div>
+
+    <div class="" *ngIf="boards.length > 1">
+        <ul class="tabs">
+        <li class="tab" *ngFor="let board of boards; let i = index" [ngClass]="{'active': selectedItem == i}" (click)="getBoardData(i)">{{board.type}}</li></ul>
+    </div>
+  </div>
+
+  <div class="course-row" >
+    <div class="course-col">
+      <div class="year-course-info">
+        <h2>Total Sessions</h2>
+        <p>{{value.total_sessions}}</p>
+      </div>
+    </div>
+    <div class="course-col">
+      <div class="year-course-info">
+        <h2>Online Pre Assessments</h2>
+        <p>{{value.online_pre_assignments}}</p>
+      </div>
+    </div>
+    <div class="course-col">
+      <div class="year-course-info">
+        <h2>Online Post Assessments</h2>
+      <p>{{value.online_post_assignments}}</p>
+      </div>
+    </div>
+    <div class="course-col">
+      <div class="year-course-info">
+        <h2>Online practice</h2>
+        <p>{{value.online_assignments}}</p>
+      </div>
+    </div>
+    <div class="course-col">
+      <div class="year-course-info">
+        <h2>Online Test</h2>
+        <p>{{value.online_tests}}</p>
+      </div>
+    </div>
+    <div class="course-col">
+      <div class="year-course-info">
+        <h2>Career Counselling Sessions with Edu Coach</h2>
+        <p>{{value.career_counselling_sessions}}</p>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="course-topic">Course Topic Include</h4>
+  <div *ngIf="value.sessions?.length < 2;else other_block">
+      <div class="syllabus-row">
+          <div class="syllabus-col" *ngFor="let bb of value.sessions">
+            <h4>{{bb.name}}</h4>
+             <div>{{bb.data}}</div>
+          </div>
+        </div>
+  </div>
+
+  <ng-template #other_block>
+      <div class="syllabus-row">
+        <div class="syllabus-col" *ngFor="let bb of value.sessions" style="width: 30%;">
+          <h4>{{bb.name}}</h4>
+            <div>{{bb.data}}</div>
+        </div>
+      </div>
+  </ng-template>
+</div>
+
+<div class="course-info">
+    <div>
+        <div class="badge-wrap"><div class="badge">Filling out soon</div></div>
+      <p><span class="feetitle">Vacant Seats </span> <span class="feeamount">{{value.seats}} Seats</span></p>
+      <p>Not a classroom, but 1:1 sessions.</p>
+    </div>
+    <div>
+        <div class="badge-wrap discount-badge"><div class="badge">{{value.discount}}% OFF</div></div>
+        <p><span class="feetitle">Subscription cost: </span> <span class="feeamount">&#x20B9; {{value.price}}</span></p>
+        <p>This cost is inclusive of the tablet cost. <br/>Per session cost is &#x20B9; {{value.per_class_price}}</p>
+    </div>
+    <div>
+      <button class="btn">Book Now</button>
+    </div>
+  </div>
+
+  <div class="disclaimer-yearly">
+    <div>You can also avail a 8 inch and 10 inch tablet with your subscription</div>
+    <p>Refund same day <a href="#">terms & condition</a> apply*</p>
+  </div>

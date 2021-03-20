@@ -1,0 +1,121 @@
+$small: 480px;
+$medium: 768px;
+
+.course-row {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #7b6fd1;
+  padding: 20px 0;
+  border-radius: 15px;
+  @media screen and (max-width: $medium) {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  .course-col {
+    width: 30%;
+    color: #fff;
+    margin-right: 10px;
+    @media screen and (max-width: $medium) {
+      width: 100%;
+      margin-bottom: 5px;
+     }
+    &.radio-col {
+      width: 10%;
+      .radio {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        left: 25px;
+        @media screen and (max-width: $medium) {
+          transform: translate(-10px, 60px);
+        }
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          background-color: #eee;
+          border-radius: 50%;
+          &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            top: 4px;
+            left: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #6353ca;
+          }
+        }
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          width: 25px;
+          height: 25px;
+          left: 0;
+          z-index: 999;
+          &:checked ~ .checkmark {
+            background-color: #fff;
+          }
+          &:checked ~ .checkmark:after {
+            display: block;
+          }
+        }
+      }
+    }
+    .month {
+      font-weight: bold;
+      font-size: 24px;
+      @media screen and (max-width: $medium) {
+        font-size: 21px;
+      }
+    }
+    .discounted-price {
+      color: #fcb426;
+      font-size: 24px;
+      font-weight: bold;
+      @media screen and (max-width: $medium) {
+        font-size: 21px;
+      }
+    }
+    .price {
+      margin-left: 10px;
+      color:#fcb426;
+      text-decoration: line-through;
+      font-weight: bold;
+    }
+    .discount {
+      font-size: 11px;
+      background-color: #6251c7;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .session-price {
+      font-size: 22px;
+      font-weight: bold;
+      @media screen and (max-width: $medium) {
+        font-size: 18px;
+      }
+    }
+    .sessions {
+      font-size: 18px;
+      @media screen and (max-width: $medium) {
+        font-size: 16px;
+      }
+    }
+  }
+}

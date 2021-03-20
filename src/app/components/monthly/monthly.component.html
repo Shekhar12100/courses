@@ -1,0 +1,52 @@
+<div class="row-wrap">
+
+  <div class="coursesinput">
+    <div class="coursesinput-select">
+        <select (change)="onGradeSelection($event.target.value)" [(ngModel)]="selectedValue">
+            <option *ngFor="let grade of monthdata; let i = index" [value]="i">{{grade.grade}}</option>
+          </select>
+    </div>
+
+    <div class="" *ngIf="boards.length > 1">
+        <ul class="tabs">
+        <li class="tab" *ngFor="let board of boards; let i = index" [ngClass]="{'active': selectedItem == i}" (click)="getBoardData(i)">{{board.type}}</li></ul>
+    </div>
+  </div>
+
+  <div class="course-row" *ngFor="let bb of sessions">
+    <div class="course-col radio-col">
+      <div class="radio">
+          <input type="radio" name="radio">
+          <span class="checkmark"></span>
+      </div>
+    </div>
+    <div class="course-col">
+      <span class="month">{{bb.valid}}</span><br/><span class="refund">{{bb.refund}}</span>
+    </div>
+    <div class="course-col">
+        <span class="discounted-price">&#x20B9; {{ bb.price - bb.price / bb.discount | roundNumber}}</span> <span class="price">&#x20B9; {{bb.price}}</span><br/><span class="discount">{{bb.discount}}% OFF</span>
+    </div>
+    <div class="course-col">
+        <span class="session-price">&#x20B9; {{bb.per_class_price}} per session</span><br/><span class="sessions">{{bb.total_sessions}} Sessions</span>
+    </div>
+  </div>
+</div>
+
+<div class="course-info">
+  <div>
+    Monthly classes let you choose <br>your own course topics
+  </div>
+  <div>
+    Each session lasts <br>45 Minutes
+  </div>
+  <div>
+    <button class="btn">Book Now</button>
+  </div>
+</div>
+
+<div class="disclaimer">
+  Refund same day <a href="#">terms & condition</a> apply*
+</div>
+
+
+
